@@ -65,6 +65,7 @@ const useAuth = () => {
       });
       await AsyncStorage.removeItem("token");
       await AsyncStorage.removeItem("userId");
+      setIsAuthenticated(false);
       navigation.navigate("SignUp");
     } catch (error) {
       console.log(error.response.data.message);

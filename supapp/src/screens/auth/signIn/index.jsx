@@ -57,7 +57,9 @@ const SignIn = () => {
 
   return (
     <Container>
-      <Title>Entrar</Title>
+      <Title style={{ marginBottom: 40, fontSize: 30, color: "darkblue" }}>
+        Entrar
+      </Title>
       <Form>
         <InputArea>
           <Text>E-mail</Text>

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
+import { Alert } from "react-native";
 import { Container, IconTextContainer, Text } from "./styles";
 import { Context } from "../../context/UserContext";
 import Icon from "react-native-vector-icons/Feather";
@@ -37,6 +38,20 @@ const Header = () => {
     fetchData();
   }, []);
 
+  const userLogout = () => {
+    Alert.alert("Confirmação", "Tem certeza que deseja sair?", [
+      {
+        text: "Cancelar",
+        style: "cancel",
+      },
+      {
+        text: "Sair",
+        onPress: logout,
+        style: "destructive",
+      },
+    ]);
+  };
+
   return (
     <Container>
       <Text>
@@ -49,7 +64,7 @@ const Header = () => {
           size={22}
           style={{ marginTop: 40, marginRight: 20 }}
           color="#000"
-          onPress={logout}
+          onPress={userLogout}
         />
         <Text style={{ marginTop: 0, marginLeft: 0, marginTop: 4 }}>Sair</Text>
       </IconTextContainer>

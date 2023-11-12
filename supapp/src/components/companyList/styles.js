@@ -17,6 +17,11 @@ export const CompanyContainer = styled.View`
   box-shadow: 0px 0px 2px #999;
 `;
 
+export const ScrollViewContainer = styled.ScrollView`
+  width: 100%;
+  height: 100%;
+`;
+
 export const CompanyRegisterContainer = styled.View`
   max-width: 100%;
   max-height: 100%;

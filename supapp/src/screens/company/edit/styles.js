@@ -14,21 +14,6 @@ export const Title = styled.Text`
   font-weight: bold;
 `;
 
-export const TitleContainer = styled.View`
-  width: 100%;
-  max-height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  background: #fff;
-`;
-
-export const ScrollViewContainer = styled.ScrollView`
-  width: 100%;
-  max-height: 100%;
-`;
-
 export const Text = styled.Text`
   font-size: 16px;
   margin-bottom: 5px;

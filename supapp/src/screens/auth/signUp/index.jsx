@@ -74,7 +74,9 @@ const SignUp = () => {
 
   return (
     <Container>
-      <Title>Criar Conta</Title>
+      <Title style={{ marginBottom: 40, fontSize: 30, color: "darkblue" }}>
+        Criar Conta
+      </Title>
       <Form>
         <InputArea>
           <Text>Nome Completo</Text>
