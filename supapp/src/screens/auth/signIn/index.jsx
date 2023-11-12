@@ -1,10 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Container, Title, Text, Form, InputArea } from "./styles";
+import {
+  Container,
+  Title,
+  ContainerImage,
+  ImageLogo,
+  Text,
+  Form,
+  InputArea,
+} from "./styles";
 import InputComponent from "../../../components/form/inputs";
 import ButtonComponent from "../../../components/form/buttons";
 import LinkComponent from "./../../../components/form/link/index";
 import { useNavigation } from "@react-navigation/native";
-
+import logo from '../../../assets/logo.png'
 import { Context } from "../../../context/UserContext";
 
 const SignIn = () => {
@@ -57,9 +65,9 @@ const SignIn = () => {
 
   return (
     <Container>
-      <Title style={{ marginBottom: 40, fontSize: 30, color: "darkblue" }}>
-        Entrar
-      </Title>
+      <ContainerImage>
+        <ImageLogo source={logo} />
+      </ContainerImage>
       <Form>
         <InputArea>
           <Text>E-mail</Text>

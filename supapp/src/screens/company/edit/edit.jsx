@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
-import { Container, Title, Text, Form, InputArea } from "./styles";
+import {
+  Container,
+  Title,
+  Text,
+  ContainerImage,
+  ImageLogo,
+  Form,
+  InputArea,
+} from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import InputComponent from "../../../components/form/inputs";
 import ButtonComponent from "../../../components/form/buttons";
 import api from "../../../services/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import logo from "../../../assets/logo.png";
 
 const EditCompany = () => {
   const [company, setCompany] = useState({});
@@ -119,9 +128,9 @@ const EditCompany = () => {
   return (
     <Container>
       <Form>
-        <Title style={{ marginBottom: 40, fontSize: 30, color: "darkblue" }}>
-          Editar Empresa
-        </Title>
+        <ContainerImage>
+          <ImageLogo source={logo} />
+        </ContainerImage>
         <InputArea>
           <Text>Nome da Empresa</Text>
           <InputComponent

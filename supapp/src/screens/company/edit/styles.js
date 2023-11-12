@@ -14,6 +14,20 @@ export const Title = styled.Text`
   font-weight: bold;
 `;
 
+export const ContainerImage = styled.View`
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
+export const ImageLogo = styled.Image`
+  width: 500px;
+  height: 60px;
+  object-fit: contain;
+`;
+
 export const Text = styled.Text`
   font-size: 16px;
   margin-bottom: 5px;
