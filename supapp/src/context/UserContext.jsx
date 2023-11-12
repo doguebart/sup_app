@@ -4,7 +4,6 @@ import useAuth from "../hooks/useAuth";
 const Context = createContext();
 
 const UserProvider = ({ children }) => {
-  console.log('UserProvider is running')
   const { isAuthenticated, register, login, del, logout } = useAuth();
 
   return (

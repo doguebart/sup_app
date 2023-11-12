@@ -61,7 +61,7 @@ const SignUp = () => {
     setUser(userData);
 
     if (validateForm()) {
-      // Chame sua lógica de login aqui, pois o formulário é válido
+      register(user);
       console.log("Formulário válido, faça o login:", userData);
     } else {
       console.log("Formulário inválido, corrija os erros:", errors);

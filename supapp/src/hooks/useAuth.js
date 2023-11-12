@@ -34,7 +34,7 @@ const useAuth = () => {
 
   const register = async (user) => {
     try {
-      await api.post("usuarios/register", user).then((response) => {
+      await api.post("usuarios/registrar", user).then((response) => {
         return response.data;
       });
 
@@ -49,7 +49,6 @@ const useAuth = () => {
       const data = await api.post("usuarios/login", user).then((response) => {
         return response.data;
       });
-
       await authUser(data);
     } catch (error) {
       console.log(error);
@@ -64,7 +63,6 @@ const useAuth = () => {
       await api.delete(`usuarios/${id}`).then((response) => {
         return response.data;
       });
-
       await AsyncStorage.removeItem("token");
       await AsyncStorage.removeItem("userId");
       navigation.navigate("SignUp");
@@ -74,9 +72,9 @@ const useAuth = () => {
   };
 
   const authUser = async (data) => {
-    setIsAuthenticated(true);
     await AsyncStorage.setItem("token", JSON.stringify(data.token));
     await AsyncStorage.setItem("userId", JSON.stringify(data.id));
+    setIsAuthenticated(true);
     navigation.navigate("Home");
   };
 

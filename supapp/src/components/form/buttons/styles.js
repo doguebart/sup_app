@@ -8,9 +8,10 @@ export const Container = styled.View`
 
 export const Button = styled.TouchableOpacity`
   width: 100%;
-  background-color: blue;
-  padding: 14px;
+  background-color: darkblue;
+  padding: 18px;
   margin: 10px 0;
+  margin-bottom: 20px;
   border-radius: 4px;
 `;
 

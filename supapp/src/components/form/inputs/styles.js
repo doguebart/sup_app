@@ -9,7 +9,7 @@ export const Container = styled.View`
 export const Input = styled.TextInput`
   width: 100%;
   border: 1px;
-  padding: 14px;
+  padding: 18px;
   border-radius: 4px;
 `;
 
