@@ -5,7 +5,6 @@ import Icon from "react-native-vector-icons/Feather";
 
 const BottomTab = () => {
   const navigation = useNavigation();
-  const isFocused = useIsFocused();
 
   const navigateTo = (routeName) => {
     navigation.navigate(routeName);
@@ -17,14 +16,6 @@ const BottomTab = () => {
         <IconTextContainer>
           <Icon name="home" onPress={() => navigateTo("Home")} size={22} />
           <Text>Início</Text>
-        </IconTextContainer>
-        <IconTextContainer>
-          <Icon
-            name="message-circle"
-            onPress={() => navigateTo("Chat")}
-            size={22}
-          />
-          <Text>Chat</Text>
         </IconTextContainer>
         <IconTextContainer>
           <Icon

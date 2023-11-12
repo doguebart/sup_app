@@ -11,6 +11,7 @@ import {
   ScrollViewContainer,
   Text,
 } from "./styles";
+import { useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Feather";
 import api from "../../services/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -19,9 +20,14 @@ import { useNavigation } from "@react-navigation/native";
 const CompanyList = () => {
   const [companys, setCompanys] = useState([]);
   const navigation = useNavigation();
+  const route = useRoute();
 
   const CreateCompany = () => {
     navigation.navigate("CreateCompany");
+  };
+
+  const Chat = (companyId) => {
+    navigation.navigate("Chat", { companyId });
   };
 
   const EditCompany = (companyId) => {
@@ -33,7 +39,18 @@ const CompanyList = () => {
       try {
         const userId = await AsyncStorage.getItem("userId");
         const token = await AsyncStorage.getItem("token");
+
         if (userId && token) {
+          // Check for new company data when the screen is focused
+          if (navigation.isFocused() && route.params?.newCompany) {
+            setCompanys((prevCompanies) => [
+              ...prevCompanies,
+              route.params.newCompany,
+            ]);
+            navigation.setParams({ newCompany: null }); // Reset the parameter
+          }
+
+          // Fetch data from the API
           api
             .get(`empresas`, {
               headers: {
@@ -42,7 +59,6 @@ const CompanyList = () => {
             })
             .then((response) => {
               setCompanys(response.data);
-              console.log(companys);
             })
             .catch((error) => {
               console.error("Error fetching user data:", error);
@@ -54,7 +70,7 @@ const CompanyList = () => {
     };
 
     fetchData();
-  }, []);
+  }, [navigation, route.params?.newCompany]);
 
   const deleteCompany = async (id) => {
     try {
@@ -142,7 +158,7 @@ const CompanyList = () => {
 
             <Text style={{ marginTop: 0, color: "gray" }}>{company.cargo}</Text>
             <Text style={{ marginTop: 0, color: "gray" }}>{company.email}</Text>
-            <ButtonChat>
+            <ButtonChat onPress={() => Chat(company.id)}>
               <Text
                 style={{ color: "white", textAlign: "center", fontSize: 14 }}
               >

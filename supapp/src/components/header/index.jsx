@@ -66,7 +66,7 @@ const Header = () => {
           color="#000"
           onPress={userLogout}
         />
-        <Text style={{ marginTop: 0, marginLeft: 0, marginTop: 4 }}>Sair</Text>
+        {/* <Text style={{ marginTop: 0, marginLeft: 0, marginTop: 4 }}>Sair</Text> */}
       </IconTextContainer>
     </Container>
   );

@@ -58,9 +58,9 @@ const useAuth = () => {
     }
   };
 
-  const del = async (user) => {
+  const del = async (userId) => {
     try {
-      await api.delete(`usuarios/${id}`).then((response) => {
+      await api.delete(`usuarios/${userId}`).then((response) => {
         return response.data;
       });
       await AsyncStorage.removeItem("token");

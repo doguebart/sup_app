@@ -98,23 +98,27 @@ const Profile = () => {
         const updatedUserData = {
           nome: user.nome,
           email: user.email,
+          senha: user.senha,
         };
 
-        const response = await api.put(`usuarios/${userId}`, updatedUserData, {
+        await api.put(`usuarios/${userId}`, updatedUserData, {
           headers: {
             Authorization: `Bearer ${JSON.parse(token)}`,
           },
         });
 
-        setUser(response.data);
-        console.log("Usuário atualizado:", response.data);
+        setUser(updatedUserData);
+
+        console.log("Usuário atualizado:", updatedUserData);
       }
     } catch (error) {
       console.error("Error updating user:", error);
     }
   };
 
-  const deleteUserWithConfirmation = (id) => {
+  const deleteUserWithConfirmation = async () => {
+    const userId = await AsyncStorage.getItem("userId");
+
     Alert.alert("Confirmação", "Tem certeza que deseja excluir a sua conta?", [
       {
         text: "Cancelar",
@@ -122,19 +126,15 @@ const Profile = () => {
       },
       {
         text: "Excluir",
-        onPress: () => del(id),
+        onPress: () => del(userId),
         style: "destructive",
       },
     ]);
   };
 
   const handleSubmit = () => {
-    const { cf_senha, ...userData } = user;
-    setUser(userData);
-
     if (validateForm()) {
       updateUser();
-      console.log("Formulário válido, usuário atualizado:", userData);
     } else {
       console.log("Formulário inválido, corrija os erros:", errors);
     }
@@ -162,9 +162,8 @@ const Profile = () => {
               type="text"
               name="nome"
               onChangeText={(value) => handleChange("nome", value)}
-              placeholder="Digite o seu nome completo"
+              placeholder={user.nome}
               errorMessage={errors.nome}
-              value={user.nome}
             />
           </InputArea>
           <InputArea>
@@ -173,9 +172,8 @@ const Profile = () => {
               type="email"
               name="email"
               onChangeText={(value) => handleChange("email", value)}
-              placeholder="Digite o seu e-mail"
+              placeholder={user.email}
               errorMessage={errors.email}
-              value={user.email}
             />
           </InputArea>
           <InputArea>
@@ -196,7 +194,7 @@ const Profile = () => {
               name="cf_senha"
               secureTextEntry={true}
               onChangeText={(value) => handleChange("cf_senha", value)}
-              placeholder="Digite a sua senha"
+              placeholder="Confirme a sua senha"
               errorMessage={errors.cf_senha}
             />
           </InputArea>

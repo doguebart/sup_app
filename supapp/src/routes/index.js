@@ -8,6 +8,7 @@ import Profile from "./../screens/profile";
 import EditCompany from "./../screens/company/edit/edit";
 import SignIn from "./../screens/auth/signIn";
 import SignUp from "./../screens/auth/signUp";
+import Chat from "../screens/chat";
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,11 @@ const AppRoutes = () => {
       <Stack.Screen
         name="EditCompany"
         component={EditCompany}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

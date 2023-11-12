@@ -70,7 +70,7 @@ const CreateCompany = () => {
             )
             .then((response) => {
               setCompany(response.data);
-              navigation.navigate("Home");
+              navigation.navigate("Home", { newCompany: response.data });
             })
             .catch((error) => {
               console.error("Error posting company data:", error);
