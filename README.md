@@ -9,6 +9,15 @@
 ```bash
 git clone https://github.com/doguebart/sup_app.git
 ```
+## Instalação do Expo CLI:
+<ul>
+  <li>Certifique-se de ter o Node.js instalado em seu sistema. Em seguida, instale o Expo CLI globalmente usando o seguinte comando no terminal:</li>
+</ul>
+
+```bash
+npm install -g expo-cli
+```
+
 ## Acessar o Diretório do Projeto:
 <ul>
   <li>Navegue para o diretório do projeto com o seguinte comando:</li>
